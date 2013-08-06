@@ -15,7 +15,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 
 /*
- * Hi Lisa!!!
+ * Hi Lisa!
  */
 public class BlockLamp extends Block {
 	@SideOnly(Side.CLIENT)
