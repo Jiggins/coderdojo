@@ -1,0 +1,18 @@
+[
+{
+  "modid" : "CoderDojoMod",
+  "name" : "Coder Dojo Mod",
+  "version" : "Week 1",
+  "credits" : "Sallins and Naas Coder Dojo",
+  "authors": [
+    "Jack Higgins"
+  ],
+  "description": "A sample mod made in the Sallins and Naas Coder Dojo",
+  "url" : "http://zen.coderdojo.com/dojo/173",
+  "updateUrl" : "",
+  "logoFile" : "",
+  "parent" : "",
+  "screenshots": [
+  ]
+}
+]

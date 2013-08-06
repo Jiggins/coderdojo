@@ -1,0 +1,129 @@
+/*
+ *	Folder Setup
+ */
+minecraft
+	src
+		assets
+		coderdojo
+			blocks
+			config
+				ConfigHandler.java
+			items
+			network
+				PacketHandler.java
+			proxies
+				ClientProxy.java
+				CommonProxy.java
+			CoderDojoMod.java
+			ModInformation.java
+
+/*
+ * CoderDojoMod.java
+ */
+package coderdojo;
+
+@Mod(modid = ModInformation.ID, name = ModInformation.NAME, version = ModInformation.VERSION)
+@NetworkMod(channels = {ModInformation.CHANNEL}, clientSideRequired = true, serverSideRequired = false, packetHandler = PacketHandler.class)
+
+/*
+ * ModInformation.java
+ * Variable container class
+ */
+public class ModInformation {
+	public static final String ID = "CoderDojoMod";
+	public static final String NAME = "Coder dojo Mod";
+	public static final String VERSION = "Week 1";
+	public static final String CHANNEL = "CoderDojo";
+}
+
+/*
+ * CoderDojoMod.java
+ */
+public class CoderDojo {
+	
+	@Instance("CoderDojo")
+	public static CoderDojo instance;
+
+	@SidedProxy(clientSide = "coderdojo.proxies.ClientProxy", serverSide = "coderdojo.proxies.CommonProxy")
+	public static CommonProxy proxy;
+
+/*
+ * CommonProxy.java
+ * Controls what is loaded on the server.
+ */
+public class CommonProxy {
+
+	public void initSounds() {
+
+	}
+
+	public void initRenderers() {
+		
+	}
+}
+
+/*
+ * ClientProxy.java
+ * An extension of the Common Proxy.
+ * Controls what is loaded on the client.
+ */
+public class ClientProxy extends CommonProxy {
+	@Override
+	public void initSounds() {
+
+	}
+
+	@Override
+	public void initRenderers() {
+
+	}
+}
+
+/*
+ * CoderDojoMod.java
+ */
+
+	/*
+	 * Pre-initialization
+	 * Where Blocks, Items, Entities, Sounds and Renderers are added to the game.
+	 */
+	@EventHandler
+	public void preInit(FMLPreInitializationEvent event) {
+		ConfigHandler.init(event.getSuggestedConfigurationFile());
+		proxy.initSounds();
+		proxy.initRenderers();
+	}
+
+	/*
+	 * Initialization
+	 * Where Recipies and names are added to the game
+	 */
+	@EventHandler
+	public void init(FMLInitializationEvent event) {
+
+	}
+	
+	/*
+	 * Post-initialization
+	 * Where code to work with other mods is added.
+	 */
+	@EventHandler
+	public void postinit(FMLPostInitializationEvent event) {
+
+	}
+}
+
+public class ConfigHandler {
+
+	public static void init(File file) {
+		Configuration config = new Configuration(file);
+		
+		config.load();
+		
+		/*
+		 * Item and Block ID's
+		 */
+
+		config.save();	
+	}
+}
