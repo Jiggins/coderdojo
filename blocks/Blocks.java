@@ -7,14 +7,18 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 
 public class Blocks {
 
-	public static Block lamp;
+	public static Block lampOff;
+	public static Block lampOn;
 
 	public static void init() {
-		lamp = new BlockLamp(BlockInfo.LAMP_ID);
-		GameRegistry.registerBlock(lamp, ItemLampBlock.class, BlockInfo.LAMP_KEY);
+		lampOff = new BlockLamp(BlockInfo.LAMP_ID);
+//		lampOn = new BlockLamp(BlockInfo.LAMP_ID+1, 1);
+		GameRegistry.registerBlock(lampOff, ItemLampBlock.class, BlockInfo.LAMP_KEY);
+//		GameRegistry.registerBlock(lampOn, ItemLampBlock.class, BlockInfo.LAMP_KEY);
 	}
 
 	public static void addNames() {
-		LanguageRegistry.addName(lamp, BlockInfo.LAMP_NAME);
+		LanguageRegistry.addName(lampOff, BlockInfo.LAMP_NAME);
+//		LanguageRegistry.addName(lampOn, BlockInfo.LAMP_NAME);
 	}
 }
