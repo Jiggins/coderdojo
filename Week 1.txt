@@ -6,6 +6,8 @@ minecraft
 		assets
 		coderdojo
 			blocks
+				CreateBlocks.java
+				BlockConcrete.java
 			config
 				ConfigHandler.java
 			items
@@ -22,19 +24,8 @@ minecraft
  */
 package coderdojo;
 
-@Mod(modid = ModInformation.ID, name = ModInformation.NAME, version = ModInformation.VERSION)
-@NetworkMod(channels = {ModInformation.CHANNEL}, clientSideRequired = true, serverSideRequired = false, packetHandler = PacketHandler.class)
-
-/*
- * ModInformation.java
- * Variable container class
- */
-public class ModInformation {
-	public static final String ID = "CoderDojoMod";
-	public static final String NAME = "Coder dojo Mod";
-	public static final String VERSION = "Week 1";
-	public static final String CHANNEL = "CoderDojo";
-}
+@Mod(modid = "CoderDojoMod", name = "Name of your mod", version = "Week 1")
+@NetworkMod(clientSideRequired = true, serverSideRequired = false)
 
 /*
  * CoderDojoMod.java
@@ -47,51 +38,14 @@ public class CoderDojo {
 	@SidedProxy(clientSide = "coderdojo.proxies.ClientProxy", serverSide = "coderdojo.proxies.CommonProxy")
 	public static CommonProxy proxy;
 
-/*
- * CommonProxy.java
- * Controls what is loaded on the server.
- */
-public class CommonProxy {
-
-	public void initSounds() {
-
-	}
-
-	public void initRenderers() {
-		
-	}
-}
-
-/*
- * ClientProxy.java
- * An extension of the Common Proxy.
- * Controls what is loaded on the client.
- */
-public class ClientProxy extends CommonProxy {
-	@Override
-	public void initSounds() {
-
-	}
-
-	@Override
-	public void initRenderers() {
-
-	}
-}
-
-/*
- * CoderDojoMod.java
- */
-
-	/*
-	 * Pre-initialization
-	 * Where Blocks, Items, Entities, Sounds and Renderers are added to the game.
-	 */
+	/**
+     * 	FMLPreInitializationEvent : Run before anything else. Read your config, create blocks,
+     * 	etc, and register them with the GameRegistry
+     */
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
 		ConfigHandler.init(event.getSuggestedConfigurationFile());
-		proxy.initSounds();
-		proxy.initRenderers();
+		CreateBlocks.addBlocks();
 	}
 
 	/*
@@ -100,18 +54,66 @@ public class ClientProxy extends CommonProxy {
 	 */
 	@EventHandler
 	public void init(FMLInitializationEvent event) {
-
+		CreateBlocks.addNames(); 
+		CreateBlocks.registerRecipies();
 	}
 	
-	/*
-	 * Post-initialization
-	 * Where code to work with other mods is added.
+	/**
+     * 	FMLPostInitializationEvent : Handle interaction with other mods, complete your setup based on this.
 	 */
 	@EventHandler
 	public void postinit(FMLPostInitializationEvent event) {
 
 	}
 }
+
+public class BlockConcrete extends Block {
+
+	public BlockConcrete(int id) {
+		super(id, Material.dragonEgg);
+		
+		setCreativeTab(CreativeTabs.tabBlock);
+	}
+
+}
+
+public class ItemBlockConcrete extends ItemBlock {
+	public ItemBlockConcrete(int id) {
+		super(id);
+	}
+}
+
+public class CreateBlocks {
+
+	public static Block concrete;
+	
+	public static void addBlocks() {
+		concrete = new BlockConcrete(1024);
+		GameRegistry.registerBlock(concrete, ItemConcrete.class, BlockInfo.CONCRETE_KEY);
+	}
+	
+	public static void addNames() {
+		LanguageRegistry.addName(concrete, BlockInfo.CONCRETE_NAME);
+	}
+
+	public static void addRecipies() {
+		ItemStack concreteStack = new ItemStack(concrete, 2);
+		ItemStack sandStack = new ItemStack(Block.sand);
+		ItemStack gravelStack = new ItemStack(Block.gravel);
+		
+		GameRegistry.addRecipe(concreteStack, 	"SG ",
+												"GS ",
+												"   ",
+												'S', sandStack,
+												'G', gravelStack);
+		
+		GameRegistry.addShapelessRecipe(concreteStack, sandStack, gravelStack);
+		
+		GameRegistry.addSmelting(Block.stone.blockID, concreteStack, 0.2F);
+	}
+
+}
+
 
 public class ConfigHandler {
 
