@@ -51,12 +51,12 @@ public class BlockCoderDojo extends Block {
 	/**
 	 *	Adds the texture into the game from the assets folder.
 	 *	Assets folder should look like:
-	 *		\assets
-	 *			\coderdojo
-	 *				\textures
-	 *					\blocks
-	 *						| coderDojoIconTop.png
-	 *						| coderDojoIconSides.png
+	 *	  \assets
+	 *	    \coderdojo
+	 *	      \textures
+	 *              \blocks
+	 *                | coderDojoIconTop.png
+	 *                | coderDojoIconSides.png
 	 *
 	 * @Override				-Lets people know we are overriding the method in Block with this one.  Not required but better for error logs.
 	 * @SideOnly(side.CLIENT)	-This method is not loaded on a server, it is not needed as the server doesn't show textures
