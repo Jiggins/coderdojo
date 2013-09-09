@@ -20,16 +20,16 @@ public class BlockCoderDojo extends Block {
 
 	/**
 	 * Constructor for the Block
-	 * @param id: -	The ID number for each of the block
-	 * 				ID numbers for the blocks in the game can be found here:
-	 * 				http://www.minecraftwiki.net/wiki/Data_values#Block_IDs
+	 * @param id: - The ID number for each of the block
+	 *              ID numbers for the blocks in the game can be found here:
+	 *              http://www.minecraftwiki.net/wiki/Data_values#Block_IDs
 	 */
 	public BlockCoderDojo(int id) {
 		/**
 		 * Super creates the CoderDojo block using the Block class
-		 * @param id		- as before
-		 * @param Material	- The material of the block
-		 * 					- Determines the sound the block makes when walked on
+		 * @param id        - as before
+		 * @param Material  - The material of the block
+		 *                  - Determines the sound the block makes when walked on
 		 */
 		super(id, Material.rock);
 		
@@ -52,8 +52,8 @@ public class BlockCoderDojo extends Block {
 	}
 
 	/**
-	 *	Adds the texture into the game from the assets folder.
-	 *	Assets folder should look like:
+	 *  Adds the texture into the game from the assets folder.
+	 *  Assets folder should look like:
 	 *    \assets
 	 *      \coderdojo
 	 *        \textures
@@ -62,11 +62,11 @@ public class BlockCoderDojo extends Block {
 	 *            | coderDojoIconSides.png
 	 *
 	 * @Override  -Lets people know we are overriding
-	 * 			  -the method in Block with this one. 
-	 * 			  -Not required but better for error logs.
+	 *            -the method in Block with this one. 
+	 *            -Not required but better for error logs.
 	 *							
-	 * @SideOnly(side.CLIENT)	-This method is not loaded on a server, 
-	 * 							-it is not needed as the server doesn't show textures
+	 * @SideOnly(side.CLIENT)  -This method is not loaded on a server, 
+	 *                         -it is not needed as the server doesn't show textures
 	 */
 	@Override
 	@SideOnly(Side.CLIENT)
@@ -91,7 +91,7 @@ public class BlockCoderDojo extends Block {
      *              | 5: East
      * 
      * @param metadata | Will be explained week 3.
-     * 				   | No need to worry about it now.
+     *                 | No need to worry about it now.
      */
 	@Override
 	public Icon getIcon(int side, int meta) {
