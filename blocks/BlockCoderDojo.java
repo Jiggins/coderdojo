@@ -58,8 +58,12 @@ public class BlockCoderDojo extends Block {
 	 *                | coderDojoIconTop.png
 	 *                | coderDojoIconSides.png
 	 *
-	 * @Override				-Lets people know we are overriding the method in Block with this one.  Not required but better for error logs.
-	 * @SideOnly(side.CLIENT)	-This method is not loaded on a server, it is not needed as the server doesn't show textures
+	 * @Override				-Lets people know we are overriding
+	 * 							-the method in Block with this one. 
+								-Not required but better for error logs.
+								
+	 * @SideOnly(side.CLIENT)	-This method is not loaded on a server, 
+	 * 							-it is not needed as the server doesn't show textures
 	 */
 	@Override
 	@SideOnly(Side.CLIENT)
