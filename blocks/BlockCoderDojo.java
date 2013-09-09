@@ -71,6 +71,13 @@ public class BlockCoderDojo extends Block {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister register) {
+		/*
+		 * The String for registerIcons() must be in the format:
+		 * [folder in the assets folder]:[Name of image without the .png extension]
+		 * so here the String is "coderdojo:coderDojoIconSides"
+		 * coderdojo is the folder under assets.
+		 * coderDojoIconSides is the image file without the .png extension.
+		 */
 		coderDojoIconSides = register.registerIcon("coderdojo:coderDojoIconSides");
 		coderDojoIconTop = register.registerIcon("coderdojo:coderDojoIconTop");
 	}
