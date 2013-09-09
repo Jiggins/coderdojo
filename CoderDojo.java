@@ -1,6 +1,11 @@
 package coderdojo;
 
 /*
+ * This class is the main class for our mod.  The two @EventHandler methods below is similar to a main method.
+ * This is where all the methods and objects from all other classes will be called.
+ * This code will produce a lot of errors as its being typed because we use so many different classes.  
+ * Usually the fix is simply pressing ctrl+shift+o to automatically import the required classes.
+ * 
  * Note: Don't worry about the imports in any of these classes
  * eclipse will automatically import everything needed with the shortcut
  * ctrl+shift+o (Mac: Command+shift+o)
@@ -31,8 +36,8 @@ public class CoderDojo {
 	@EventHandler
 	public static void preInit(FMLPreInitializationEvent event) {
 		/*
-		 * creates the Coder Dojo block from BlockCoderDojo.java
-		 * Here I use 1024 as the ID, as I know its not an existing block.
+		 * Creates the Coder Dojo block from BlockCoderDojo.java
+		 * Here I use 1024 as the ID, as I know its not used in Minecraft.
 		 * Explained in BlockCoderDojo.java
 		 */
 		coderDojoBlock = new BlockCoderDojo(1024);
@@ -43,7 +48,7 @@ public class CoderDojo {
 	
 	/**
 	 * Runs as the game loads.
-	 * used for adding names recipes to the game
+	 * Used for adding names and recipes to the game
 	 * @EventHandler is important here, mod will not load without it
 	 */
 	@EventHandler
