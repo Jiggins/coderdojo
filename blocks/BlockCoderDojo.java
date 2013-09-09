@@ -54,7 +54,7 @@ public class BlockCoderDojo extends Block {
 	/**
 	 *	Adds the texture into the game from the assets folder.
 	 *	Assets folder should look like:
-	 *	  \assets
+	 *    \assets
 	 *      \coderdojo
 	 *        \textures
 	 *          \blocks
