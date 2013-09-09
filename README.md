@@ -1,4 +1,4 @@
-coderdojo
+Coder Dojo Minecraft Modding
 =========
 
 Repository created for Coder Dojo
