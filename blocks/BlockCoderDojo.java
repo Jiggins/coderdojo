@@ -43,7 +43,10 @@ public class BlockCoderDojo extends Block {
 		setHardness(3);
 		
 		/*
-		 * Sets the amount of light emitted by a block from 0.0f to 1.0f (converts internally to 0-15). 
+		 * Sets the amount of light emitted by a block from 0.0f to 1.0f.
+		 * Sets the amount of light given off by this block.
+		 * Values range from 0.0f (no light) to 1.0f (Glowstone brightness)
+		 * This number is a float so it has an f after the number.
 		 */
 		setLightValue(1.0f);
 	}
@@ -52,16 +55,16 @@ public class BlockCoderDojo extends Block {
 	 *	Adds the texture into the game from the assets folder.
 	 *	Assets folder should look like:
 	 *	  \assets
-	 *	    \coderdojo
-	 *	      \textures
+	 *      \coderdojo
+	 *        \textures
 	 *          \blocks
 	 *            | coderDojoIconTop.png
 	 *            | coderDojoIconSides.png
 	 *
-	 * @Override	-Lets people know we are overriding
-	 * 				-the method in Block with this one. 
-					-Not required but better for error logs.
-								
+	 * @Override  -Lets people know we are overriding
+	 * 			  -the method in Block with this one. 
+	 * 			  -Not required but better for error logs.
+	 *							
 	 * @SideOnly(side.CLIENT)	-This method is not loaded on a server, 
 	 * 							-it is not needed as the server doesn't show textures
 	 */
@@ -77,18 +80,18 @@ public class BlockCoderDojo extends Block {
      * Icons are registered in the registerIcons(IconRegister) method above
      * and declared private in the class.
      * 
-     * @param side	| The side of the block ranging from 0-5
-     * 				| If you wanted to place a different texture on the top of the block you would use
-     * 				| if (side == 1) return topIcon else return coderDojoIcon;
-     * 				| 0: Bottom
-     * 				| 1: Top
-     * 				| 2: North
-     * 				| 3: South
-     * 				| 4: West
-     * 				| 5: East
+     * @param side  | The side of the block ranging from 0-5
+     *              | If you wanted to place a different texture on the top of the block you would use
+     *              | if (side == 1) return topIcon else return coderDojoIcon;
+     *              | 0: Bottom
+     *              | 1: Top
+     *              | 2: North
+     *              | 3: South
+     *              | 4: West
+     *              | 5: East
      * 
-     * @param metadata	| Will be explained week 3.
-     * 					| No need to worry about it now.
+     * @param metadata | Will be explained week 3.
+     * 				   | No need to worry about it now.
      */
 	@Override
 	public Icon getIcon(int side, int meta) {
