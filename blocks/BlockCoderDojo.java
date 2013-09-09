@@ -54,13 +54,13 @@ public class BlockCoderDojo extends Block {
 	 *	  \assets
 	 *	    \coderdojo
 	 *	      \textures
-	 *              \blocks
-	 *                | coderDojoIconTop.png
-	 *                | coderDojoIconSides.png
+	 *          \blocks
+	 *            | coderDojoIconTop.png
+	 *            | coderDojoIconSides.png
 	 *
-	 * @Override				-Lets people know we are overriding
-	 * 							-the method in Block with this one. 
-								-Not required but better for error logs.
+	 * @Override	-Lets people know we are overriding
+	 * 				-the method in Block with this one. 
+					-Not required but better for error logs.
 								
 	 * @SideOnly(side.CLIENT)	-This method is not loaded on a server, 
 	 * 							-it is not needed as the server doesn't show textures
@@ -77,15 +77,15 @@ public class BlockCoderDojo extends Block {
      * Icons are registered in the registerIcons(IconRegister) method above
      * and declared private in the class.
      * 
-     * @param side		| The side of the block ranging from 0-5
-     * 					| If you wanted to place a different texture on the top of the block you would use
-     * 					| if (side == 1) return topIcon else return coderDojoIcon;
-     * 					| 0: Bottom
-     * 					| 1: Top
-     * 					| 2: North
-     * 					| 3: South
-     * 					| 4: West
-     * 					| 5: East
+     * @param side	| The side of the block ranging from 0-5
+     * 				| If you wanted to place a different texture on the top of the block you would use
+     * 				| if (side == 1) return topIcon else return coderDojoIcon;
+     * 				| 0: Bottom
+     * 				| 1: Top
+     * 				| 2: North
+     * 				| 3: South
+     * 				| 4: West
+     * 				| 5: East
      * 
      * @param metadata	| Will be explained week 3.
      * 					| No need to worry about it now.
