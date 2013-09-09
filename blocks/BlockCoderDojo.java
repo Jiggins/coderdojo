@@ -57,9 +57,12 @@ public class BlockCoderDojo extends Block {
 	 *					\blocks
 	 *						| coderDojoIconTop.png
 	 *						| coderDojoIconSides.png
+	 *
+	 * @Override				-Lets people know we are overriding the method in Block with this one.  Not required but better for error logs.
+	 * @SideOnly(side.CLIENT)	-This method is not loaded on a server, it is not needed as the server doesn't show textures
 	 */
-	@SideOnly(Side.CLIENT)
 	@Override
+	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister register) {
 		coderDojoIconSides = register.registerIcon("coderdojo:coderDojoIconSides");
 		coderDojoIconTop = register.registerIcon("coderdojo:coderDojoIconTop");
