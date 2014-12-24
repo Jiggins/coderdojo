@@ -1,6 +1,8 @@
 package coderdojo;
 
 import net.minecraft.block.Block;
+import net.minecraft.entity.Entity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import coderdojo.blocks.BlockCoderDojo;
 import cpw.mods.fml.common.Mod;
@@ -23,13 +25,14 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
  */
 
 
-
 //Tells the game that this class is a mod and to add it to the game.
 @Mod(modid = "CoderDojo", name = "Coder Dojo Mod", version = "Week 1")
 public class CoderDojo {
 	
 	//Publicly declares the Block so it can be used anywhere.
 	public static Block coderDojoBlock;
+	public static Entity mindsGolem;
+	public static Item mindsLogo;
 	
 	/**
 	 * Runs before the game loads.
@@ -44,6 +47,7 @@ public class CoderDojo {
 		 * Explained in BlockCoderDojo.java
 		 */
 		coderDojoBlock = new BlockCoderDojo(1024);
+				
 		//adds the block created above to the game;
 		GameRegistry.registerBlock(coderDojoBlock, "coderDojoBlock");
 	}

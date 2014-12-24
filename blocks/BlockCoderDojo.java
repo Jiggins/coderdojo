@@ -4,7 +4,9 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.Icon;
+import net.minecraft.world.World;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -87,15 +89,15 @@ public class BlockCoderDojo extends Block {
      * Icons are registered in the registerIcons(IconRegister) method above
      * and declared private in the class.
      * 
-     * @param side  | The side of the block ranging from 0-5
-     *              | If you wanted to place a different texture on the top of the block you would use
-     *              | if (side == 1) return topIcon else return coderDojoIcon;
-     *              | 0: Bottom
-     *              | 1: Top
-     *              | 2: North
-     *              | 3: South
-     *              | 4: West
-     *              | 5: East
+     * @param side     | The side of the block ranging from 0-5
+     *                 | If you wanted to place a different texture on the top of the block you would use
+     *                 | if (side == 1) return topIcon else return coderDojoIcon;
+     *                 | 0: Bottom
+     *                 | 1: Top
+     *                 | 2: North
+     *                 | 3: South
+     *                 | 4: West
+     *                 | 5: East
      * 
      * @param metadata | Will be explained week 3.
      *                 | No need to worry about it now.
@@ -112,5 +114,16 @@ public class BlockCoderDojo extends Block {
 		}
 		//everything else
 		return coderDojoIconSides;
+	}
+	
+	@Override
+	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
+		if (!world.isRemote) {
+			player.addChatMessage("Hello " + player.getEntityName());
+			player.addChatMessage("Block coordinates: " + "X: " + x + " Y: " + y + " Z: " + z);
+			player.addChatMessage("Block Right click: " + "hitX: " + hitX + " hitY: " + hitY + " hitZ: " + hitZ);
+			player.addChatMessage("Block Side: " + side);
+		}
+		return true;
 	}
 }
